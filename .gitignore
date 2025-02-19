@@ -1,0 +1,11 @@
+test_kafka_producer.py
+populate_db.py
+random_test.py
+.env
+venv/
+test/
+certs/
+# Ignore Python bytecode and cache directories
+__pycache__/
+*.py[cod]
+*$py.class

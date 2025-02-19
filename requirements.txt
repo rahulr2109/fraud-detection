@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pymongo
+redis
+kafka-python
+scikit-learn
+pandas
+numpy
+python-dotenv
