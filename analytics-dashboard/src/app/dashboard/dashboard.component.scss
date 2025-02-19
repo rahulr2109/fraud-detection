@@ -1,0 +1,38 @@
+.dashboard-container {
+  padding: 2rem;
+  text-align: center;
+}
+
+.table-container {
+  margin: 1rem auto;
+  max-width: 800px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f5f5f5;
+}
+
+.error {
+  background-color: #ffe5e5;
+  color: #b00020;
+  padding: 1em;
+  border: 1px solid #b00020;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
