@@ -190,9 +190,89 @@ The system uses WebSockets for real-time fraud alert notifications. The FastAPI 
 - **FraudAlertsComponent:**  
   The component subscribes to the service to display live fraud alerts.
 
-## Contributing
+### Contributing
+---
 
-Contributions are welcome! Please fork the repository, create a branch for your feature or bug fix, and open a pull request with a clear description of your changes.
+## How to Contribute
+
+Contributions are welcome! If you’d like to contribute to the project, please follow these steps:
+
+### 1. Fork the Repository
+- Navigate to the [project's GitHub repository](https://github.com/rahulr2109/fraud-detection).
+- Click the **Fork** button in the upper-right corner. This creates a copy of the repository in your GitHub account.
+
+### 2. Clone Your Fork Locally
+Open your terminal (or Git Bash on Windows) and clone your forked repository:
+
+```bash
+git clone https://github.com/rahulr2109/fraud-detection.git
+```
+This command creates a local copy of your fork.
+
+### 3. Create a New Branch
+Before making any changes, create a new branch to work on your feature or bug fix. This helps keep your work organized and makes it easier to submit a pull request later.
+
+```bash
+cd fraud-detection
+git checkout -b feature/my-new-feature
+```
+
+Replace `feature/my-new-feature` with a descriptive branch name.
+
+### 4. Make Your Changes
+- Open the project in your favorite code editor.
+- Make the necessary changes, improvements, or bug fixes.
+- Test your changes to ensure everything works as expected.
+
+### 5. Commit Your Changes
+Once you're satisfied with your changes, commit them with a clear and concise commit message:
+
+```bash
+git add .
+git commit -m "Add a detailed explanation for feature X" 
+```
+
+Be sure to explain what changes you made and why they were necessary.
+
+### 6. Push Your Branch to Your Fork
+Push your branch to your GitHub fork:
+
+```bash
+git push origin feature/my-new-feature
+```
+
+### 7. Create a Pull Request (PR)
+- Go to your fork on GitHub.
+- Click on the **Compare & pull request** button next to your new branch.
+- Provide a clear title and a detailed description of your changes.
+- Click **Create pull request**.
+
+### 8. Respond to Feedback
+Your pull request will be reviewed by the project maintainers. They may suggest changes or improvements:
+- If changes are requested, make those changes in your branch, commit, and push them. The PR will update automatically.
+- Once the PR is approved, it will be merged into the main repository.
+
+### 9. Stay Updated
+- To keep your fork up-to-date with the original repository, you can set the original repository as an upstream remote:
+
+```bash
+git remote add upstream https://github.com/yourusername/fraud-detection.git
+```
+
+- Then, periodically fetch the latest changes and merge them into your branch:
+
+```bash
+git fetch upstream
+git checkout main
+git merge upstream/main
+```
+
+---
+
+By following these steps, you can contribute effectively to the project. If you have any questions or need help, please feel free to open an issue on the repository or contact the maintainers directly.
+
+Happy coding!
+
 
 
 ## Contact
