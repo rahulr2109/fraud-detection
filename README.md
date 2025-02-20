@@ -37,7 +37,7 @@ The system is composed of several key components:
   - Angular (using standalone components)
   - Angular Material (tables, paginator, sort, etc.)
   - SCSS for styling
-- **Deployment & Monitoring (Optional):**
+- **Deployment & Monitoring:**
   - Docker & Docker Compose
   - Grafana & Prometheus
 
@@ -256,7 +256,7 @@ Your pull request will be reviewed by the project maintainers. They may suggest 
 - To keep your fork up-to-date with the original repository, you can set the original repository as an upstream remote:
 
 ```bash
-git remote add upstream https://github.com/yourusername/fraud-detection.git
+git remote add upstream https://github.com/rahulr2109/fraud-detection.git
 ```
 
 - Then, periodically fetch the latest changes and merge them into your branch:
