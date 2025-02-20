@@ -1,0 +1,28 @@
+.alerts-container {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 1rem auto;
+  max-width: 600px;
+  text-align: left;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.alerts-container h2 {
+  margin-top: 0;
+}
+
+.alerts-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.alerts-container li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.alerts-container li:last-child {
+  border-bottom: none;
+}

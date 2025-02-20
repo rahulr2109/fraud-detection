@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AnalyticsService } from '../services/analytics.service';
+import { AnalyticsService } from '../../services/analytics.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   fraudAlerts: any[] = [];
   days: number = 7; // Last 7 days
 
-  // Error messages for each API call
+  // Error messages for API calls
   transactionsErrorMessage: string = '';
   fraudAlertsErrorMessage: string = '';
 
@@ -52,11 +52,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     // Assign paginator and sort for transactions table
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.paginator.pageSize = 5; // default page size
+    this.paginator.pageSize = 5;
 
     // Assign paginator for fraud alerts table
     this.fraudAlertsDataSource.paginator = this.fraudAlertsPaginator;
-    this.fraudAlertsPaginator.pageSize = 5; // default page size
+    this.fraudAlertsPaginator.pageSize = 5;
   }
 
   loadTransactions(): void {
@@ -66,9 +66,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         this.transactions = data.transactions;
         // Update data source with a new array reference
         this.dataSource.data = [...this.transactions];
-        this.transactionsErrorMessage = '';
-        // Force change detection to update the paginator length
+        // Reassign paginator to ensure it picks up the new length
+        this.dataSource.paginator = this.paginator;
+        // Force the data source to update its internal subscription
+        (this.dataSource as any)._updateChangeSubscription();
         this.cdRef.detectChanges();
+        this.transactionsErrorMessage = '';
       },
       error: err => {
         console.error(err);
@@ -82,10 +85,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       next: data => {
         console.log('Fraud alerts received:', data.fraud_alerts);
         this.fraudAlerts = data.fraud_alerts;
-        // Update fraud alerts data source with a new array reference
         this.fraudAlertsDataSource.data = [...this.fraudAlerts];
-        this.fraudAlertsErrorMessage = '';
+        // Reassign paginator for fraud alerts data source
+        this.fraudAlertsDataSource.paginator = this.fraudAlertsPaginator;
+        (this.fraudAlertsDataSource as any)._updateChangeSubscription();
         this.cdRef.detectChanges();
+        this.fraudAlertsErrorMessage = '';
       },
       error: err => {
         console.error(err);

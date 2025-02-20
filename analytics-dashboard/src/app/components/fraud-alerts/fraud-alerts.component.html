@@ -1,0 +1,16 @@
+<div class="alerts-container">
+    <h2>Real-Time Fraud Alerts</h2>
+    <div *ngIf="alerts && alerts.length > 0; else noAlerts">
+      <ul>
+        <li *ngFor="let alert of alerts">
+          <strong>ID:</strong> {{ alert.transaction_id }},
+          <strong>Amount:</strong> {{ alert.amount }},
+          <strong>Timestamp:</strong> {{ alert.timestamp | date:'short' }}
+        </li>
+      </ul>
+    </div>
+    <ng-template #noAlerts>
+      <p>No fraud alerts received yet.</p>
+    </ng-template>
+  </div>
+  

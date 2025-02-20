@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from services.mongodb_service import mongo_service
 from services.redis_service import redis_service
+from api.websocket_routes import router as websocket_router
 
 app = FastAPI()
 
@@ -16,6 +17,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include WebSocket routes
+app.include_router(websocket_router)
 
 @app.get("/")
 def get_fraud_alerts():

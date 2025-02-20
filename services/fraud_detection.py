@@ -4,6 +4,7 @@ from sklearn.ensemble import IsolationForest
 from services.mongodb_service import mongo_service
 from services.redis_service import redis_service
 from services.kafka_service import kafka_service
+from api.websocket_routes import manager
 
 class FraudDetection:
     def __init__(self):
@@ -19,7 +20,7 @@ class FraudDetection:
         model.fit(df[['amount', 'balance_before', 'balance_after']])
         return model
 
-    def detect_fraud(self, transaction):
+    async def detect_fraud(self, transaction):
         if not self.model:
             return False
 
@@ -33,6 +34,8 @@ class FraudDetection:
             mongo_service.save_fraud_alert(transaction)
             redis_service.save_fraud_alert(transaction["transaction_id"], transaction)
             kafka_service.send_message("fraud-alerts", transaction)
+            await manager.broadcast(transaction)
+
             return True
         return False
 
